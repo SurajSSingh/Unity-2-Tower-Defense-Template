@@ -2593,7 +2593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9d88dd6e08843e39659d6500fb358e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerList: []
+  towerList:
+  - {fileID: 11400000, guid: 77509859a39d449fc86e0ff93f0770f1, type: 2}
+  - {fileID: 11400000, guid: 98881d29e08ae4130b8b78a812b9eec0, type: 2}
+  - {fileID: 11400000, guid: bf77eadb081154da1851d8ba0e8d282c, type: 2}
 --- !u!1 &578792300
 GameObject:
   m_ObjectHideFlags: 0
