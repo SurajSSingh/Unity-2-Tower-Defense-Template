@@ -12,7 +12,7 @@ public class canvasManager : MonoBehaviour
     private void Start()
     {
         fadingPanel.SetActive(false);
-        Time.timeScale = 1.0f;
+        PauseGame();
     }
 
     private void Update()
