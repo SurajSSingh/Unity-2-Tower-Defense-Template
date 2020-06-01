@@ -90,12 +90,8 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void ProjectileHit(int value)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            // currentHealth -= collision.gameObject.GetComponent<ProjectileManager>().proj.damage;
-            Destroy(collision.gameObject);
-        }
+        currentHealth -= value;
     }
 }
