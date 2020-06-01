@@ -1,0 +1,57 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class canvasManager : MonoBehaviour
+{
+    public GameObject fadingPanel;
+    public GameObject pauseMenu;
+
+    private void Start()
+    {
+        fadingPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void ResetLevel()
+    {
+        StartCoroutine(FadeEffect(SceneManager.GetActiveScene().buildIndex));
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1.0f;
+        pauseMenu.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0.0f;
+        pauseMenu.SetActive(true);
+    }
+
+    IEnumerator FadeEffect(int sceneNumber)
+    {
+        fadingPanel.SetActive(true);
+        for(int i = 0; i < 100; i++)
+        {
+            fadingPanel.GetComponent<CanvasGroup>().alpha = (float)(i*0.01f);
+            yield return new WaitForSecondsRealtime(0.01f);
+        }
+
+        SceneManager.LoadScene(sceneNumber);
+    }
+}
