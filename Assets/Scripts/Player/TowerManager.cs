@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    //public TowerType self;
+    public TowerType self;
     public Animator anim;
     [SerializeField]
     private int currentHealth = 100;
     private SpriteRenderer spr;
-    private int healthyLevelHealth = 60;
     public GameObject currentTarget;
 
     // Start is called before the first frame update
@@ -17,14 +16,13 @@ public class TowerManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
-        //currentHealth = self.health;
+        currentHealth = self.health;
         FindNextTarget();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateSprite();
         if (currentTarget != null)
         {
             AttackTarget();
@@ -36,19 +34,6 @@ public class TowerManager : MonoBehaviour
         if (currentHealth < 0)
         {
             Destroy(this.gameObject);
-        }
-    }
-
-    void UpdateSprite()
-    {
-        // Changes Sprite color
-        if (currentHealth >= healthyLevelHealth)
-        {
-            //spr.color = self.healthyColor;
-        }
-        else
-        {
-            //spr.color = self.damagedColor;
         }
     }
 

@@ -1936,6 +1936,7 @@ MonoBehaviour:
   minRange: 5.1
   maxRange: 5.4
   currentAmount: 1
+  waveOffset: 1
 --- !u!1 &316004901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,7 +2224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tower 1
+  m_text: Example 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2292,7 +2293,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 480315836}
-    characterCount: 7
+    characterCount: 9
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -2549,6 +2550,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537444798}
   m_CullTransparentMesh: 0
+--- !u!1 &553117859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553117860}
+  - component: {fileID: 553117861}
+  m_Layer: 0
+  m_Name: TowersListManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &553117860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553117859}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1191552053}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &553117861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553117859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d9d88dd6e08843e39659d6500fb358e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerList: []
 --- !u!1 &578792300
 GameObject:
   m_ObjectHideFlags: 0
@@ -63125,10 +63170,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToSpawn:
-  - {fileID: 5445179471069899957, guid: f359f55b3751d4bdbb052b93ad677046, type: 3}
+  - {fileID: 9030889360045141145, guid: ea3c04a7253f146cfab037529c91221e, type: 3}
   minRange: 5.1
   maxRange: 5.4
   currentAmount: 1
+  waveOffset: 2
 --- !u!1 &1037727962
 GameObject:
   m_ObjectHideFlags: 0
@@ -63798,6 +63844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1312890104}
+  - {fileID: 553117860}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63845,10 +63892,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesToSpawn:
-  - {fileID: 5445179471069899957, guid: f359f55b3751d4bdbb052b93ad677046, type: 3}
+  - {fileID: 1517657503891406845, guid: d6be84b897336439f8aeddd92c5f4b14, type: 3}
   minRange: 5.1
   maxRange: 5.4
-  currentAmount: 1
+  currentAmount: 2
+  waveOffset: 3
 --- !u!1 &1243714455
 GameObject:
   m_ObjectHideFlags: 0
@@ -63861,6 +63909,7 @@ GameObject:
   - component: {fileID: 1243714459}
   - component: {fileID: 1243714458}
   - component: {fileID: 1243714457}
+  - component: {fileID: 1243714460}
   m_Layer: 5
   m_Name: SelectTower
   m_TagString: Untagged
@@ -63938,17 +63987,17 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Tower 1
+    - m_Text: Example 1
       m_Image: {fileID: 0}
-    - m_Text: Tower 2
+    - m_Text: Example 2
       m_Image: {fileID: 0}
-    - m_Text: Tower 3
+    - m_Text: Example 3
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1312890107}
-        m_MethodName: SelectUnitToBuy
+        m_MethodName: SelectTowerToBuy
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -63995,6 +64044,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243714455}
   m_CullTransparentMesh: 0
+--- !u!114 &1243714460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243714455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd211403525fe432897935d1ce4fa43f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listManager: {fileID: 553117861}
 --- !u!1 &1264552592
 GameObject:
   m_ObjectHideFlags: 0
@@ -64270,7 +64332,8 @@ MonoBehaviour:
     type: 3}
   health: 1000
   resources: 100
-  currentUnit: 0
+  currentTower: 0
+  towerListManager: {fileID: 553117861}
 --- !u!1 &1395502952
 GameObject:
   m_ObjectHideFlags: 0
@@ -65321,6 +65384,7 @@ MonoBehaviour:
   minRange: 5.1
   maxRange: 5.4
   currentAmount: 1
+  waveOffset: 1
 --- !u!1 &1766539415
 GameObject:
   m_ObjectHideFlags: 0

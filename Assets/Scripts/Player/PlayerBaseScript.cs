@@ -19,8 +19,8 @@ public class PlayerBaseScript : MonoBehaviour
     private float timerCoolDown;
     private int resourcesIncrease = 10;
     [SerializeField]
-    private int currentUnit = 0;
-    // public List<"Units"> unitList;
+    private int currentTower = 0;
+    public TowerListScript towerListManager;
 
     // Update is called once per frame
     void Update()
@@ -60,12 +60,16 @@ public class PlayerBaseScript : MonoBehaviour
 
     public void BuyTower(Vector3 location)
     {
-        // Spawn the units using selection, make sure to add cost
-        Instantiate(towerTemplate, location, Quaternion.identity);
+        if (towerListManager.towerList[currentTower].cost <= resources)
+        {
+            // Spawn the units using selection, make sure to add cost
+            GameObject tower = Instantiate(towerTemplate, location, Quaternion.identity);
+            tower.GetComponent<TowerManager>().self = towerListManager.towerList[currentTower];
+        }
     }
 
     public void SelectTowerToBuy(int currentSelection)
     {
-        currentUnit = currentSelection;
+        currentTower = currentSelection;
     }
 }
