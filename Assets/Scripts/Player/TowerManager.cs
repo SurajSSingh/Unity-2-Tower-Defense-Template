@@ -12,6 +12,8 @@ public class TowerManager : MonoBehaviour
     public GameObject currentTarget;
     public GameObject projectile;
 
+    private bool readyToFire = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +92,10 @@ public class TowerManager : MonoBehaviour
     void AttackTarget()
     {
         Debug.DrawLine(this.transform.position, currentTarget.transform.position);
-        StartCoroutine(FireProjectile(GetDir()));
+        if (readyToFire)
+        {
+            StartCoroutine(FireProjectile(GetDir()));
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -105,7 +110,8 @@ public class TowerManager : MonoBehaviour
     IEnumerator FireProjectile(Quaternion direction)
     {
         GameObject shotProjectile = Instantiate(projectile, this.transform);
-        // ADD  
+        readyToFire = false;
         yield return new WaitForSeconds(self.attackRate);
+        readyToFire = true;
     }
 }
