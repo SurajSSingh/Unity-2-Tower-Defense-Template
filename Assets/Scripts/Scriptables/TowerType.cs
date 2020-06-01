@@ -9,5 +9,6 @@ public class TowerType : ScriptableObject
     public int cost;
     public int health;
     public float attackRate;
-    
+    public Color color = Color.gray;
+    public Sprite sprite;
 }

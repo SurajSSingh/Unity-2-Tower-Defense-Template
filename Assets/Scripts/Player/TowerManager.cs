@@ -10,12 +10,15 @@ public class TowerManager : MonoBehaviour
     private int currentHealth = 100;
     private SpriteRenderer spr;
     public GameObject currentTarget;
+    public GameObject projectile;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
+        spr.color = self.color;
+        spr.sprite = self.sprite;
         currentHealth = self.health;
         FindNextTarget();
     }
@@ -87,7 +90,7 @@ public class TowerManager : MonoBehaviour
     void AttackTarget()
     {
         Debug.DrawLine(this.transform.position, currentTarget.transform.position);
-        // Fire projectile
+        StartCoroutine(FireProjectile(GetDir()));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -97,5 +100,12 @@ public class TowerManager : MonoBehaviour
             currentHealth -= collision.gameObject.GetComponent<EnemyManager>().self.damage;
             Destroy(collision.gameObject);
         }
+    }
+
+    IEnumerator FireProjectile(Quaternion direction)
+    {
+        GameObject shotProjectile = Instantiate(projectile, this.transform);
+        // ADD  
+        yield return new WaitForSeconds(self.attackRate);
     }
 }
