@@ -7,6 +7,7 @@ public class PlayerBaseScript : MonoBehaviour
 {
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI playerResourcesText;
+    public GameObject gameOverField;
     [SerializeField]
     private int health = 1000;
     [SerializeField]
@@ -34,13 +35,13 @@ public class PlayerBaseScript : MonoBehaviour
         }
         if (health <= 0)
         {
-            Destroy(this.gameObject);
+            Time.timeScale = 0.0f;
+            gameOverField.SetActive(true);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject);
         if (collision.gameObject.GetComponent<EnemyManager>() != null)
         {
             health -= collision.gameObject.GetComponent<EnemyManager>().self.damage;

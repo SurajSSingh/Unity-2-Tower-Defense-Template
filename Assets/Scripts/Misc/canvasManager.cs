@@ -7,6 +7,7 @@ public class canvasManager : MonoBehaviour
 {
     public GameObject fadingPanel;
     public GameObject pauseMenu;
+    public GameObject buildingCursor;
 
     private void Start()
     {
@@ -41,6 +42,11 @@ public class canvasManager : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         pauseMenu.SetActive(true);
+    }
+
+    public void ActivateCursor()
+    {
+        buildingCursor.SetActive(true);
     }
 
     IEnumerator FadeEffect(int sceneNumber)

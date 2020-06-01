@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FindUnitScript : BaseEnemyAction
 {
-    EnemyScript enemy;
-    GameObject currentTarget;
+    //EnemyScript enemy;
+    //GameObject currentTarget;
 
     //private void Awake()
     //{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class TowerManager : MonoBehaviour
 {
     public EnemyScript self;
     public Animator anim;
@@ -25,11 +25,15 @@ public class EnemyManager : MonoBehaviour
     void Update()
     {
         UpdateSprite();
-        UpdateDistance();
-        if (currentHealth <= 0)
+        if (currentTarget != null)
         {
-            Destroy(this.gameObject);
+            AttackTarget();
         }
+        else
+        {
+            FindNextTarget();
+        }
+        
     }
 
     void UpdateSprite()
@@ -45,27 +49,6 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public Quaternion GetDir()
-    {
-        Vector2 direction = currentTarget.transform.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-        Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
-        return rot;
-    }
-
-    void UpdateDistance()
-    {
-        if (anim.GetBool("hasTarget"))
-        {
-            float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
-            anim.SetFloat("distanceToTarget", distance);
-        }
-        else
-        {
-            FindNextTarget();
-        }
-    }
-
     void FindNextTarget()
     {
         foreach (string objTag in self.targetTags)
@@ -78,24 +61,31 @@ public class EnemyManager : MonoBehaviour
 
         if (currentTarget == null)
         {
-            currentTarget = GameObject.FindGameObjectWithTag("Player");
+            currentTarget = GameObject.FindGameObjectWithTag("Enemy");
         }
-        if (currentTarget != null)
+        if(anim != null)
         {
-            anim.SetBool("hasTarget", true);
-        }
-        else
-        {
-            anim.SetBool("hasTarget", false);
+            if (currentTarget != null)
+            {
+                anim.SetBool("hasTarget", true);
+            }
+            else
+            {
+                anim.SetBool("hasTarget", false);
+            }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public Quaternion GetDir()
     {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            currentHealth -= collision.gameObject.GetComponent<ProjectileManager>().proj.damage;
-            Destroy(collision.gameObject);
-        }
+        Vector2 direction = currentTarget.transform.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+        return rot;
+    }
+
+    void AttackTarget()
+    {
+
     }
 }
