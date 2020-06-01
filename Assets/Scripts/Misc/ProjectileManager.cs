@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ProjectileManager : MonoBehaviour
 {
-    public Projectile proj;
+    //public Projectile proj;
     public Vector3 direction;
     private bool launched = false;
-    private float deathTimer = 10f;
+    private float deathTimer = 15f;
 
     private void Start()
     {
-        transform.localScale *= proj.size;
-        gameObject.GetComponent<SpriteRenderer>().color = proj.color;
+        //transform.localScale *= proj.size;
+        //gameObject.GetComponent<SpriteRenderer>().color = proj.color;
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class ProjectileManager : MonoBehaviour
     {
         if (direction != null && !launched)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(direction * proj.speed, ForceMode2D.Impulse);
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(direction * proj.speed, ForceMode2D.Impulse);
             launched = true;
         }
         deathTimer -= Time.deltaTime;

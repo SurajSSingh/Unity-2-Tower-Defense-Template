@@ -42,7 +42,7 @@ public class PlayerBaseScript : MonoBehaviour
             gameOverField.SetActive(true);
         }
 
-        if (Input.GetMouseButtonDown(0) && cursor.active)
+        if (Input.GetMouseButtonDown(0) && cursor.activeSelf)
         {
             BuyTower(cursor.transform.position);
             cursor.SetActive(false);

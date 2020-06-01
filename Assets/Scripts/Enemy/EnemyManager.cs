@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            currentHealth -= collision.gameObject.GetComponent<ProjectileManager>().proj.damage;
+            // currentHealth -= collision.gameObject.GetComponent<ProjectileManager>().proj.damage;
             Destroy(collision.gameObject);
         }
     }
