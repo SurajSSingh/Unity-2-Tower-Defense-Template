@@ -62,6 +62,7 @@ public class PlayerBaseScript : MonoBehaviour
     {
         if (towerListManager.towerList[currentTower].cost <= resources)
         {
+            resources -= towerListManager.towerList[currentTower].cost;
             // Spawn the units using selection, make sure to add cost
             GameObject tower = Instantiate(towerTemplate, location, Quaternion.identity);
             tower.GetComponent<TowerManager>().self = towerListManager.towerList[currentTower];
