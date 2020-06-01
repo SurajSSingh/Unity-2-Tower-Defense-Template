@@ -8,6 +8,9 @@ public class PlayerBaseScript : MonoBehaviour
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI playerResourcesText;
     public GameObject gameOverField;
+    public GameObject cursor;
+    public GameObject towerTemplate;
+
     [SerializeField]
     private int health = 1000;
     [SerializeField]
@@ -38,6 +41,12 @@ public class PlayerBaseScript : MonoBehaviour
             Time.timeScale = 0.0f;
             gameOverField.SetActive(true);
         }
+
+        if (Input.GetMouseButtonDown(0) && cursor.active)
+        {
+            BuyTower(cursor.transform.position);
+            cursor.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,9 +58,10 @@ public class PlayerBaseScript : MonoBehaviour
         }
     }
 
-    public void BuyTower()
+    public void BuyTower(Vector3 location)
     {
-        // Spawn the units using selection
+        // Spawn the units using selection, make sure to add cost
+        Instantiate(towerTemplate, location, Quaternion.identity);
     }
 
     public void SelectTowerToBuy(int currentSelection)

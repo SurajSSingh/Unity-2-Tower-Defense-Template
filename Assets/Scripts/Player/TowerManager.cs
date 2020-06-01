@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    public EnemyScript self;
+    //public TowerType self;
     public Animator anim;
     [SerializeField]
-    private int currentHealth;
+    private int currentHealth = 100;
     private SpriteRenderer spr;
     private int healthyLevelHealth = 60;
     public GameObject currentTarget;
@@ -17,7 +17,7 @@ public class TowerManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
-        currentHealth = self.health;
+        //currentHealth = self.health;
         FindNextTarget();
     }
 
@@ -33,7 +33,10 @@ public class TowerManager : MonoBehaviour
         {
             FindNextTarget();
         }
-        
+        if (currentHealth < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void UpdateSprite()
@@ -41,21 +44,33 @@ public class TowerManager : MonoBehaviour
         // Changes Sprite color
         if (currentHealth >= healthyLevelHealth)
         {
-            spr.color = self.healthyColor;
+            //spr.color = self.healthyColor;
         }
         else
         {
-            spr.color = self.damagedColor;
+            //spr.color = self.damagedColor;
         }
     }
 
     void FindNextTarget()
     {
-        foreach (string objTag in self.targetTags)
+        // Try to find closest enemy
+
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0)
         {
-            if (GameObject.FindGameObjectsWithTag(objTag).Length != 0)
+            foreach (GameObject target in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                currentTarget = GameObject.FindGameObjectsWithTag(objTag)[0];
+                if (currentTarget == null)
+                {
+                    currentTarget = target;
+                }
+                else if (
+                    Vector3.Distance(this.transform.position,
+                    currentTarget.transform.position) > Vector3.Distance(this.transform.position,
+                    target.transform.position))
+                {
+                    currentTarget = target;
+                }
             }
         }
 
@@ -86,6 +101,16 @@ public class TowerManager : MonoBehaviour
 
     void AttackTarget()
     {
+        Debug.DrawLine(this.transform.position, currentTarget.transform.position);
+        // Fire projectile
+    }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<EnemyManager>() != null)
+        {
+            currentHealth -= collision.gameObject.GetComponent<EnemyManager>().self.damage;
+            Destroy(collision.gameObject);
+        }
     }
 }

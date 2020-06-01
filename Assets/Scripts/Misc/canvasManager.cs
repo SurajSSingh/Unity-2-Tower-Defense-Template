@@ -12,6 +12,7 @@ public class canvasManager : MonoBehaviour
     private void Start()
     {
         fadingPanel.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 
     private void Update()
@@ -29,6 +30,7 @@ public class canvasManager : MonoBehaviour
 
     public void ResetLevel()
     {
+
         StartCoroutine(FadeEffect(SceneManager.GetActiveScene().buildIndex));
     }
 
