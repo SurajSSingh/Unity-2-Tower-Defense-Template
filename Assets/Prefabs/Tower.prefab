@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 177289955711521781}
   - component: {fileID: 177289955711521783}
   - component: {fileID: 177289955711521782}
+  - component: {fileID: 6843953896518737840}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -130,3 +131,22 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.000000029802322}
       - {x: 0.000000059604645, y: -0.5}
       - {x: 0.5, y: 0}
+--- !u!95 &6843953896518737840
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177289955711521778}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2af848dd3be1c439f9511b5566a21189, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
