@@ -8,7 +8,8 @@ public class TowerType : ScriptableObject
     public string TowerName;
     public int cost;
     public int health;
-    public float attackRate;
+    public float attackCooldown;
     public Color color = Color.gray;
     public Sprite sprite;
+    public float attackRange;
 }

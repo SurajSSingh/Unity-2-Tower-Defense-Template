@@ -81,6 +81,11 @@ public class TowerManager : MonoBehaviour
         }
     }
 
+    public float GetDis()
+    {
+        return (currentTarget.transform.position - transform.position).magnitude;
+    }
+
     public Quaternion GetDir()
     {
         Vector2 direction = currentTarget.transform.position - transform.position;
@@ -92,7 +97,7 @@ public class TowerManager : MonoBehaviour
     void AttackTarget()
     {
         Debug.DrawLine(this.transform.position, currentTarget.transform.position);
-        if (readyToFire)
+        if (readyToFire && GetDis() <= self.attackRange)
         {
             StartCoroutine(FireProjectile(GetDir()));
         }
@@ -111,7 +116,7 @@ public class TowerManager : MonoBehaviour
     {
         GameObject shotProjectile = Instantiate(projectile, this.transform);
         readyToFire = false;
-        yield return new WaitForSeconds(self.attackRate);
+        yield return new WaitForSeconds(self.attackCooldown);
         readyToFire = true;
     }
 }
