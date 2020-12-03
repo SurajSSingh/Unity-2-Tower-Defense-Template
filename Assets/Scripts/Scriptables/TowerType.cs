@@ -5,11 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Tower", menuName = "CustomObjects/Tower")]
 public class TowerType : ScriptableObject
 {
-    public string TowerName;
+    public string towerName;
+
     public int cost;
     public int health;
-    public float attackCooldown;
-    public Color color = Color.gray;
+
     public Sprite sprite;
+    public Color color = Color.gray;
+
+    public float attackCooldown;
     public float attackRange;
 }
