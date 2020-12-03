@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1493,7 +1493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9d88dd6e08843e39659d6500fb358e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerList: []
+  towerList:
+  - {fileID: 11400000, guid: 6780563ac62a8465587c2b2f9b1958d2, type: 2}
+  - {fileID: 11400000, guid: b34d762bbe41f458dba208529915dd52, type: 2}
+  - {fileID: 11400000, guid: 6780563ac62a8465587c2b2f9b1958d2, type: 2}
 --- !u!1 &578792300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1831,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 68.35
+  m_fontSize: 68.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -63082,7 +63085,7 @@ RectTransform:
   m_GameObject: {fileID: 1243714455}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 480315835}
   - {fileID: 578792301}
@@ -63093,7 +63096,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 250, y: 0}
-  m_SizeDelta: {x: 400, y: 75}
+  m_SizeDelta: {x: 150, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243714457
 MonoBehaviour:

@@ -18,5 +18,6 @@ public class DropdownScript : MonoBehaviour
             dropdown.options.Add(new TMP_Dropdown.OptionData(tower.towerName, tower.sprite));
 
         }
+        dropdown.RefreshShownValue();
     }
 }
