@@ -8,6 +8,7 @@ public class EnemyScript : ScriptableObject
     // Overrides the name attribute from ScriptableObject class
     public new string name;
 
+    public float size;
     public int health;
     public int speed;
     public int rotRate;

@@ -15,7 +15,8 @@ public class DropdownScript : MonoBehaviour
         dropdown.options.Clear();
         foreach (TowerType tower in listManager.towerList)
         {
-            dropdown.options.Add(new TMP_Dropdown.OptionData(tower.towerName));
+            dropdown.options.Add(new TMP_Dropdown.OptionData(tower.towerName, tower.sprite));
+
         }
     }
 }

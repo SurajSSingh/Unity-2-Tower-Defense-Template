@@ -4,25 +4,6 @@ using UnityEngine;
 
 public class FindUnitScript : BaseEnemyAction
 {
-    //EnemyScript enemy;
-    //GameObject currentTarget;
-
-    //private void Awake()
-    //{
-    //    foreach (string objTag in enemy.targetTags)
-    //    {
-    //        if (GameObject.FindGameObjectsWithTag(objTag) != null)
-    //        {
-    //            currentTarget = GameObject.FindGameObjectsWithTag(objTag)[0];
-    //        }
-    //    }
-
-    //    if (currentTarget == null)
-    //    {
-    //        currentTarget = GameObject.FindGameObjectWithTag("Player");
-    //    }
-    //}
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -32,7 +13,14 @@ public class FindUnitScript : BaseEnemyAction
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        if (enemy.currentTarget == null)
+        {
+            enemy.currentTarget = GameObject.FindGameObjectWithTag("Player");
+        }
+        if (enemy.currentTarget != null)
+        {
+            animator.SetBool("hasTarget", true);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

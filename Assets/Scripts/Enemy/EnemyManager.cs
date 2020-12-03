@@ -12,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     private int healthyLevelHealth = 60;
     public GameObject currentTarget;
 
+    private float baseSize = 4;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -23,19 +25,15 @@ public class EnemyManager : MonoBehaviour
         currentHealth = self.health;
         spr.sprite = self.sprite;
         spr.color = self.healthyColor;
-        FindNextTarget();
+        this.transform.localScale *= (baseSize * self.size);
+        //FindNextTarget();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        UpdateSprite();
-        UpdateDistance();
-        if (currentHealth <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    //void Update()
+    //{
+    //    UpdateDistance();
+    //}
 
     void UpdateSprite()
     {
@@ -58,45 +56,50 @@ public class EnemyManager : MonoBehaviour
         return rot;
     }
 
-    void UpdateDistance()
-    {
-        if (anim.GetBool("hasTarget"))
-        {
-            float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
-            anim.SetFloat("distanceToTarget", distance);
-        }
-        else
-        {
-            FindNextTarget();
-        }
-    }
+    //void UpdateDistance()
+    //{
+    //    if (anim.GetBool("hasTarget"))
+    //    {
+    //        float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
+    //        anim.SetFloat("distanceToTarget", distance);
+    //    }
+    //    else
+    //    {
+    //        FindNextTarget();
+    //    }
+    //}
 
-    void FindNextTarget()
-    {
-        foreach (string objTag in self.targetTags)
-        {
-            if (GameObject.FindGameObjectsWithTag(objTag).Length != 0)
-            {
-                currentTarget = GameObject.FindGameObjectsWithTag(objTag)[0];
-            }
-        }
+    //void FindNextTarget()
+    //{
+    //    foreach (string objTag in self.targetTags)
+    //    {
+    //        if (GameObject.FindGameObjectsWithTag(objTag).Length != 0)
+    //        {
+    //            currentTarget = GameObject.FindGameObjectsWithTag(objTag)[0];
+    //        }
+    //    }
 
-        if (currentTarget == null)
-        {
-            currentTarget = GameObject.FindGameObjectWithTag("Player");
-        }
-        if (currentTarget != null)
-        {
-            anim.SetBool("hasTarget", true);
-        }
-        else
-        {
-            anim.SetBool("hasTarget", false);
-        }
-    }
+    //    if (currentTarget == null)
+    //    {
+    //        currentTarget = GameObject.FindGameObjectWithTag("Player");
+    //    }
+    //    if (currentTarget != null)
+    //    {
+    //        anim.SetBool("hasTarget", true);
+    //    }
+    //    else
+    //    {
+    //        anim.SetBool("hasTarget", false);
+    //    }
+    //}
 
     public void ProjectileHit(int value)
     {
         currentHealth -= value;
+        UpdateSprite();
+        if (currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

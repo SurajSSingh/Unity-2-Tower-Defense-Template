@@ -5,21 +5,22 @@ using TMPro;
 
 public class PlayerBaseScript : MonoBehaviour
 {
+    [SerializeField]
+    private int health = 1000;
+    [SerializeField]
+    private static int resources = 100;
+    [SerializeField]
+    private int currentTower = 0;
+
+    private float resourseCoolDown = 10f;
+    private float timerCoolDown;
+    private int resourcesIncrease = 1;
+
     public TextMeshProUGUI playerHealthText;
     public TextMeshProUGUI playerResourcesText;
     public GameObject gameOverField;
     public GameObject cursor;
     public GameObject towerTemplate;
-
-    [SerializeField]
-    private int health = 1000;
-    [SerializeField]
-    private int resources = 100;
-    private float resourseCoolDown = 1f;
-    private float timerCoolDown;
-    private int resourcesIncrease = 10;
-    [SerializeField]
-    private int currentTower = 0;
     public TowerListScript towerListManager;
 
     // Update is called once per frame

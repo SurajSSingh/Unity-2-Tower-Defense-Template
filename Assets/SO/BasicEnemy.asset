@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: BasicEnemy
   m_EditorClassIdentifier: 
   name: Basic
+  size: 1
   health: 100
   speed: 3
   rotRate: 10
   damage: 50
-  healthyColor: {r: 0.8490566, g: 0.19445428, b: 0.18823424, a: 1}
-  damagedColor: {r: 0.4716981, g: 0.24252403, b: 0.24252403, a: 1}
+  healthyColor: {r: 1, g: 1, b: 1, a: 1}
+  damagedColor: {r: 0.3679245, g: 0.2759434, b: 0.2759434, a: 1}
+  sprite: {fileID: 21300000, guid: dde9cf30c6d4a4303ab4951da44ba8ac, type: 3}
   targetTags:
   - Player

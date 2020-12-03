@@ -17,6 +17,10 @@ public class GoToTarget : BaseEnemyAction
             enemy.GetComponent<EnemyManager>().GetDir(),
             enemy.GetComponent<EnemyManager>().self.rotRate * Time.deltaTime);
         enemy.transform.Translate(0, speed * Time.deltaTime,0);
+        if (enemy.currentTarget == null)
+        {
+            animator.SetBool("hasTarget", false);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
