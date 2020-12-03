@@ -12,12 +12,17 @@ public class EnemyManager : MonoBehaviour
     private int healthyLevelHealth = 60;
     public GameObject currentTarget;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
         currentHealth = self.health;
+        spr.sprite = self.sprite;
+        spr.color = self.healthyColor;
         FindNextTarget();
     }
 

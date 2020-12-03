@@ -12,7 +12,10 @@ public class EnemyScript : ScriptableObject
     public int speed;
     public int rotRate;
     public int damage;
+
     public Color healthyColor;
     public Color damagedColor;
+    public Sprite sprite;
+
     public List<string> targetTags;
 }
