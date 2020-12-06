@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < (currentAmount / waveOffset); i++)
         {
-            GameObject temp = CreateEnemy(RandomEnemyType());//Instantiate(enemy, this.transform.parent.parent);
+            GameObject temp = CreateEnemy(RandomEnemyType());
             temp.transform.position = RandomPostion();
         }
 

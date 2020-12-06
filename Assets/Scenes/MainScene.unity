@@ -62326,6 +62326,7 @@ MonoBehaviour:
   enemyAC: {fileID: 9100000, guid: 17c0ad59a143b4ae0a968ee2ddb49c97, type: 2}
   enemyTypes:
   - {fileID: 11400000, guid: 44254d9baf40f49b2b07f18162bd7bcd, type: 2}
+  - {fileID: 11400000, guid: e54280f58f9304091a6237769351aef3, type: 2}
   minRange: 5.1
   maxRange: 5.4
   currentAmount: 1
@@ -63050,6 +63051,7 @@ MonoBehaviour:
   enemyAC: {fileID: 9100000, guid: 17c0ad59a143b4ae0a968ee2ddb49c97, type: 2}
   enemyTypes:
   - {fileID: 11400000, guid: fee916bf33de0474696b2926ecf8e085, type: 2}
+  - {fileID: 11400000, guid: 44254d9baf40f49b2b07f18162bd7bcd, type: 2}
   minRange: 5.1
   maxRange: 5.4
   currentAmount: 2
