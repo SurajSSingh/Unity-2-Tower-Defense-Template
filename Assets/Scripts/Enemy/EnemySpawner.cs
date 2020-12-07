@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
     {
         GameObject go = new GameObject(enemy.name + " (Clone)");
         go.transform.parent = this.transform.parent.parent;
+        go.tag = "Enemy";
 
         go.AddComponent<Animator>();
         go.GetComponent<Animator>().runtimeAnimatorController = enemyAC;
