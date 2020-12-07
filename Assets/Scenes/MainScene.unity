@@ -63490,6 +63490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  resources: 200
   currentTower: 0
   playerHealthText: {fileID: 681922353}
   playerResourcesText: {fileID: 2109967424}
