@@ -24,12 +24,12 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemies()
     {
-        for (int i = 0; i < (currentAmount / waveOffset); i++)
-        {
-            GameObject temp = CreateEnemy(RandomEnemyType());
-            temp.transform.position = RandomPostion();
-        }
-
+        //for (int i = 0; i < (currentAmount / waveOffset); i++)
+        //{
+        //    GameObject temp = CreateEnemy(RandomEnemyType());
+        //    temp.transform.position = RandomPostion();
+        //}
+        StartCoroutine(SpawnStaggered());
         currentAmount += 1;
     }
 
@@ -54,6 +54,16 @@ public class EnemySpawner : MonoBehaviour
         go.GetComponent<Rigidbody2D>().gravityScale = 0;
 
         return go;
+    }
+
+    IEnumerator SpawnStaggered()
+    {
+        for (int i = 0; i < (currentAmount / waveOffset); i++)
+        {
+            GameObject temp = CreateEnemy(RandomEnemyType());
+            temp.transform.position = RandomPostion();
+            yield return new WaitForSeconds(1);
+        }
     }
 
 }

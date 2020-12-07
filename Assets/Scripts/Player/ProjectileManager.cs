@@ -13,7 +13,8 @@ public class ProjectileManager : MonoBehaviour
         this.gameObject.transform.localScale *= self.size;
         this.gameObject.GetComponent<SpriteRenderer>().sprite = self.sprite;
         this.gameObject.GetComponent<SpriteRenderer>().color = self.color;
-        Destroy(this.gameObject, maxActiveTime);
+        //Destroy(this.gameObject, maxActiveTime);
+        StartCoroutine(ActiveTime());
     }
 
     // Update is called once per frame
@@ -38,4 +39,10 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
+    IEnumerator ActiveTime()
+    {
+        yield return new WaitForSeconds(maxActiveTime);
+        Destroy(this.gameObject);
     }
+
+}
