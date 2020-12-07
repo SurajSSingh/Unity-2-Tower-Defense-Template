@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Basic
   size: 1
-  health: 100
+  health: 120
   speed: 3
   rotRate: 10
   damage: 50
