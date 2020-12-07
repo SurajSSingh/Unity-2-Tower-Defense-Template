@@ -28,16 +28,16 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTarget != null)
-        {
-            Debug.Log("Attacking");
-            AttackTarget();
-        }
-        else
-        {
-            Debug.Log("Finding");
-            FindNextTarget();
-        }
+        //if (currentTarget != null)
+        //{
+        //    Debug.Log("Attacking");
+        //    AttackTarget();
+        //}
+        //else
+        //{
+        //    Debug.Log("Finding");
+        //    FindNextTarget();
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

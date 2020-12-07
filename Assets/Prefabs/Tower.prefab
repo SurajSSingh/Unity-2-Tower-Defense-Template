@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 177289955711521781}
   - component: {fileID: 177289955711521783}
   - component: {fileID: 177289955711521782}
+  - component: {fileID: 6807357092984149893}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -96,10 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 0}
-  anim: {fileID: 0}
   currentHealth: 0
   currentTarget: {fileID: 0}
-  projectile: {fileID: 0}
+  baseTower: {fileID: 0}
 --- !u!60 &177289955711521782
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -129,3 +129,22 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.000000029802322}
       - {x: 0.000000059604645, y: -0.5}
       - {x: 0.5, y: 0}
+--- !u!95 &6807357092984149893
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177289955711521778}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 353e7d9406ba541c6b26a1deed0975c9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

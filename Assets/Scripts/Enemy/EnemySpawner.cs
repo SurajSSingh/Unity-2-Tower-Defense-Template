@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
         {
             GameObject temp = CreateEnemy(RandomEnemyType());
             temp.transform.position = RandomPostion();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
         }
     }
 
