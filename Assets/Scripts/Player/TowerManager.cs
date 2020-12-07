@@ -10,11 +10,13 @@ public class TowerManager : MonoBehaviour
     private int currentHealth = 100;
     private SpriteRenderer spr;
     public GameObject currentTarget;
+    public PlayerBaseScript baseTower;
 
     // Start is called before the first frame update
     void Start()
     {
         //anim = GetComponent<Animator>();
+        baseTower = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBaseScript>();
         spr = GetComponent<SpriteRenderer>();
         spr.color = self.color;
         spr.sprite = self.sprite;
@@ -40,7 +42,7 @@ public class TowerManager : MonoBehaviour
         {
             // Take damage from enemy collision
             ChangeHealth(-collision.gameObject.GetComponent<EnemyManager>().self.damage);
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyManager>().ProjectileHit(self.health);
         }
     }
 

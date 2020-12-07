@@ -8,7 +8,7 @@ public class PlayerBaseScript : MonoBehaviour
     [SerializeField]
     private int health = 1000;
     [SerializeField]
-    private static int resources = 100;
+    private int resources = 100;
     [SerializeField]
     private int currentTower = 0;
 
@@ -48,6 +48,10 @@ public class PlayerBaseScript : MonoBehaviour
             BuyTower(cursor.transform.position);
             cursor.SetActive(false);
         }
+        if (Input.GetMouseButtonDown(1) && cursor.activeSelf)
+        {
+            cursor.SetActive(false);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,5 +77,10 @@ public class PlayerBaseScript : MonoBehaviour
     public void SelectTowerToBuy(int currentSelection)
     {
         currentTower = currentSelection;
+    }
+
+    public void AddResourcesToPlayer(int amount)
+    {
+        resources += amount;
     }
 }

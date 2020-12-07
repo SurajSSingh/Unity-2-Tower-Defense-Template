@@ -99,6 +99,7 @@ public class EnemyManager : MonoBehaviour
         UpdateSprite();
         if (currentHealth <= 0)
         {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBaseScript>().AddResourcesToPlayer(self.score);
             Destroy(this.gameObject);
         }
     }

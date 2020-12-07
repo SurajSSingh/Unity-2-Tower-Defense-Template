@@ -13,6 +13,7 @@ public class EnemyScript : ScriptableObject
     public int speed;
     public int rotRate;
     public int damage;
+    public int score;
 
     public Color healthyColor;
     public Color damagedColor;
