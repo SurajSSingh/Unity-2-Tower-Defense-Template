@@ -1493,7 +1493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9d88dd6e08843e39659d6500fb358e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerList: []
+  towerList:
+  - {fileID: 11400000, guid: 3ccb18e657a6c4ee3a395064f8a33d19, type: 2}
+  - {fileID: 11400000, guid: 9dd996b5376e544c6ba2b9b467b6fe83, type: 2}
+  - {fileID: 11400000, guid: 4fad8894d36b14ad4b23d823e7285cd5, type: 2}
 --- !u!1 &578792300
 GameObject:
   m_ObjectHideFlags: 0
@@ -63490,6 +63493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1000
+  resources: 1000
   currentTower: 0
   playerHealthText: {fileID: 681922353}
   playerResourcesText: {fileID: 2109967424}

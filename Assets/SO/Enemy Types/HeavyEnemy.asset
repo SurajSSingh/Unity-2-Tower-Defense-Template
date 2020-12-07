@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dfa958b2e61d41a693ea47d4b130f6d, type: 3}
-  m_Name: FastEnemy
+  m_Name: HeavyEnemy
   m_EditorClassIdentifier: 
-  name: Fast
-  size: 0.75
-  health: 60
-  speed: 5
-  rotRate: 10
-  damage: 25
-  healthyColor: {r: 1, g: 0.8744728, b: 0.5896226, a: 1}
-  damagedColor: {r: 0.33962262, g: 0.26939687, b: 0.20345317, a: 1}
-  sprite: {fileID: 21300000, guid: 13b3f476429714f88a63598e9fc0a070, type: 3}
+  name: Heavy
+  size: 1.5
+  health: 180
+  speed: 1
+  rotRate: 1
+  damage: 100
+  score: 100
+  healthyColor: {r: 1, g: 0.75, b: 0.8715687, a: 1}
+  damagedColor: {r: 0.254717, g: 0.21026167, b: 0.2213755, a: 1}
+  sprite: {fileID: 21300000, guid: 4e573319dd1154672996983c595333dc, type: 3}
   targetTags:
   - Player

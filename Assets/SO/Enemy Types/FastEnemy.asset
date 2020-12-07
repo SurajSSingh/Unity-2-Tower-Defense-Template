@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dfa958b2e61d41a693ea47d4b130f6d, type: 3}
-  m_Name: BasicEnemy
+  m_Name: FastEnemy
   m_EditorClassIdentifier: 
-  name: Basic
-  size: 1
-  health: 100
-  speed: 3
+  name: Fast
+  size: 0.75
+  health: 60
+  speed: 5
   rotRate: 10
-  damage: 50
-  healthyColor: {r: 1, g: 1, b: 1, a: 1}
-  damagedColor: {r: 0.3679245, g: 0.2759434, b: 0.2759434, a: 1}
-  sprite: {fileID: 21300000, guid: dde9cf30c6d4a4303ab4951da44ba8ac, type: 3}
+  damage: 25
+  score: 75
+  healthyColor: {r: 1, g: 0.8744728, b: 0.5896226, a: 1}
+  damagedColor: {r: 0.33962262, g: 0.26939687, b: 0.20345317, a: 1}
+  sprite: {fileID: 21300000, guid: 13b3f476429714f88a63598e9fc0a070, type: 3}
   targetTags:
   - Player
